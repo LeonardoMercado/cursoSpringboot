@@ -1,56 +1,44 @@
 package com.leonardo.cursoSpringboot.models;
 
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "usuario")
+@ToString @EqualsAndHashCode
 public class Usuario {
+
+    @Id
+    @Getter @Setter @Column(name = "id")
+    private int id;
+    @Getter @Setter @Column(name = "nombre")
     private String nombre;
+    @Getter @Setter @Column(name = "apellido")
     private String apellido;
+    @Getter @Setter @Column(name = "telefono")
+    private String telefono;
+    @Getter @Setter @Column(name = "email")
     private String email;
+    @Getter @Setter @Column(name = "password")
     private String password;
 
-    public Usuario(String nombre, String apellido, String email, String password) {
+    public Usuario() {};
+
+    public Usuario(int id, String nombre, String apellido,String telefono, String email, String password) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.telefono = telefono;
         this.email = email;
         this.password = password;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "USUARIO: \n" +
-                "   *Nombre -> " + nombre + "\n" +
-                "   *Apellido -> " + apellido + "\n" +
-                "   *Email -> " + email + "\n" +
-                "   *Password -> " + password + "\n";
-    }
 }
