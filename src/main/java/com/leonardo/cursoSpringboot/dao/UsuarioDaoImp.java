@@ -17,7 +17,7 @@ public class UsuarioDaoImp implements UsuarioDao{
 
     @Override
     @Transactional
-    public List<Usuario> getUsuario() {
+    public List<Usuario> getUsuarios() {
         String query = "FROM Usuario";
         return entityManager.createQuery(query).getResultList();
     }
@@ -26,6 +26,11 @@ public class UsuarioDaoImp implements UsuarioDao{
     public void deleteUsuario(int id) {
         Usuario usuario = entityManager.find(Usuario.class,id);
         entityManager.remove(usuario);
+    }
+
+    @Override
+    public Usuario getUsuario(int id) {
+        return entityManager.find(Usuario.class,id);
     }
 
 }

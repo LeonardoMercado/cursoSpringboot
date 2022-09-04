@@ -16,12 +16,12 @@ public class UsuarioController {
 
     @RequestMapping(value = "api/usuarios")
     public List<Usuario> getUsuarios(){
-        return usuarioDao.getUsuario();
+        return usuarioDao.getUsuarios();
     }
 
     @RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.GET)
-    public Usuario getUsuario(@PathVariable int id){
-        Usuario usuario = new Usuario(id,"Leonardo","Mercado","3185262110","lfmercadobe@unal.edu.co","123456");
+    public Usuario getUsuarios(@PathVariable int id){
+        Usuario usuario = usuarioDao.getUsuario(id);
         return usuario;
     }
 
